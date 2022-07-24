@@ -11,7 +11,7 @@ export const fatchFlights = createAsyncThunk(
 	}
 );
 
-type initialState = {
+export type initialState = {
 	isLoading: boolean;
 	flights: string[];
 	error: string;
@@ -40,14 +40,11 @@ const flightSlice = createSlice({
 				state.error = "";
 			}
 		);
-		builder.addCase(
-			fatchFlights.rejected,
-			(state, action: PayloadAction<any>) => {
-				state.isLoading = false;
-				state.flights = [];
-				state.error = action.payload.message;
-			}
-		);
+		builder.addCase(fatchFlights.rejected, (state, action) => {
+			state.isLoading = false;
+			state.flights = [];
+			state.error = action.error.message || "somethin went wrong";
+		});
 	},
 });
 
