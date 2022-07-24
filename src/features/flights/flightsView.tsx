@@ -11,7 +11,7 @@ export const FlightsView = () => {
 	useEffect(() => {
 		dispatch(fatchFlights());
 	}, []);
-	console.log(flights);
+	console.log(flights[7]);
 
 	return (
 		<>
@@ -19,8 +19,8 @@ export const FlightsView = () => {
 			{!isLoading && error ? <h6>Error: {error}</h6> : null}
 			{!isLoading && flights.length ? (
 				<div>
-					{flights.map((flight, index) => (
-						<FlightView key={index} />
+					{flights.slice(0, 10).map((flight, index) => (
+						<FlightView key={index} flight={flight} />
 					))}
 				</div>
 			) : null}

@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { FlightsView } from "./features/flights/FlightsView";
+import { Home } from "./pages/Home";
 
 function App() {
 	return (
 		<>
-			<FlightsView />
+			<Home />
 		</>
 	);
 }
