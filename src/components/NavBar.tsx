@@ -1,7 +1,15 @@
 import React from "react";
 import logo from "../assests/logo/logo.png";
 
-export const NavBar = () => {
+type NavBarProps = {
+	setSearchTxt: any;
+};
+
+export const NavBar = ({ setSearchTxt }: NavBarProps) => {
+	const searchTxtOnchng = (event: any) => {
+		setSearchTxt(event.target.value);
+	};
+
 	return (
 		<div className="flex justify-between bg-slate-200		px-16 items-center	fixed top-0 left-0 right-0">
 			<div className="logo">
@@ -31,6 +39,7 @@ export const NavBar = () => {
 						type="text"
 						placeholder="Search.."
 						name="search"
+						onChange={(e) => searchTxtOnchng(e)}
 					/>
 					<button
 						className="p-2 mt-2 text-center bg-gray-100 hover:bg-gray-400"

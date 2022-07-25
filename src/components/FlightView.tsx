@@ -3,8 +3,6 @@ export const FlightView = ({ flight }: { flight: any }) => {
 	const date = new Date(flight.launch_date_unix).toDateString();
 	const fireDate = new Date(flight.static_fire_date_unix).toDateString();
 
-	console.log(flight);
-
 	return (
 		<div className="flex justify-items-center	justify-center	my-8 ">
 			<a
@@ -20,13 +18,16 @@ export const FlightView = ({ flight }: { flight: any }) => {
 					<h6>Launch Date : {date}</h6>
 					<h6>Fire Date : {fireDate}</h6>
 				</div>
+				<div className="date flex justify-between">
+					<h6>
+						Mission :{" "}
+						<a href={article_link} target="_blank">
+							{flight.mission_name}
+						</a>{" "}
+					</h6>
+					<h6>Upcoming : {flight.upcoming ? "Yes" : "No"}</h6>
+				</div>
 
-				<h6>
-					Mission :{" "}
-					<a href={article_link} target="_blank">
-						{flight.mission_name}
-					</a>{" "}
-				</h6>
 				<p>{flight.details}</p>
 
 				<p className="launchSite">
