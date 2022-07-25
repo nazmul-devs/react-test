@@ -27,6 +27,7 @@ export const FlightView = ({ flight }: { flight: any }) => {
 					</h6>
 					<h6>Upcoming : {flight.upcoming ? "Yes" : "No"}</h6>
 				</div>
+				<h3>Rocket name: {flight.rocket.rocket_name}</h3>
 
 				<p>{flight.details}</p>
 

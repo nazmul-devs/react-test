@@ -16,7 +16,7 @@ export const FlightsView = () => {
 		setData(flights);
 	}, []);
 
-	console.log(searchTxt);
+	console.log(data[9]);
 
 	const filterFlights = (status: any) => {
 		const updatedFlights = flights.filter((curElem: any) => {
@@ -63,9 +63,22 @@ export const FlightsView = () => {
 						</button>
 					</div>
 
-					{flights.slice(0, 10).map((flight, index) => (
-						<FlightView key={index} flight={flight} />
-					))}
+					{flights
+						.slice(0, 50)
+						.filter((value: any) => {
+							if (searchTxt === "") {
+								return value;
+							} else if (
+								value.rocket.rocket_name
+									.toLowerCase()
+									.includes(searchTxt.toLowerCase())
+							) {
+								return value;
+							}
+						})
+						.map((flight, index) => (
+							<FlightView key={index} flight={flight} />
+						))}
 				</div>
 			) : null}
 		</>
