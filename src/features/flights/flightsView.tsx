@@ -25,7 +25,7 @@ export const FlightsView = () => {
 	useEffect(() => {
 		dispatch(fatchFlights());
 		setData(flights);
-	}, []);
+	}, [flights.length]);
 
 	console.log(data[9]);
 
@@ -52,7 +52,7 @@ export const FlightsView = () => {
 			)}
 			{!isLoading && error ? <h6>Error: {error}</h6> : null}
 			{!isLoading && flights.length ? (
-				<div className="p-16 pt-24 bg-slate-900	">
+				<div className="p-16 pt-24 bg-slate-900	min-h-96">
 					<div className="filter flex align-items-center">
 						<p className="text-white	font-bold">
 							Filter By Launch Status:
