@@ -18,7 +18,7 @@ export const FlightsView = () => {
 			{isLoading && <h2>Loading...</h2>}
 			{!isLoading && error ? <h6>Error: {error}</h6> : null}
 			{!isLoading && flights.length ? (
-				<div>
+				<div className="p-16 pt-24 bg-slate-900	">
 					{flights.slice(0, 10).map((flight, index) => (
 						<FlightView key={index} flight={flight} />
 					))}
